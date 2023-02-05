@@ -1,0 +1,14 @@
+model_name = 'LR'
+log_dir = os.path.join('log', 'tensorboard', model_name, datetime.now().strftime("%Y%m%d-%H%M%S"))
+task = 'binary'
+emb_size = 16
+test_ratio = 0.2
+l2_reg = 0.0
+lr = 0.001
+train_batch_size = 256
+test_batch_size = 512
+epochs=100
+validation_split=0.1
+
+
+model = LR(linear_feat_columns, use_bias=True, l2_reg=linear_l2_reg)

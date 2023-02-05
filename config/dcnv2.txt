@@ -1,0 +1,39 @@
+model_name = 'DCNv2'
+log_dir = os.path.join('log', 'tensorboard', model_name, datetime.now().strftime("%Y%m%d-%H%M%S"))
+task = 'binary'
+emb_size = 16
+test_ratio = 0.2
+linear_l2_reg = 0.0
+emb_l2_reg = 0.0
+cross_num = 2
+expert_num = 4
+low_rank = 32
+dcnv2_l2_reg = 0.
+dnn_hidden_units = (32,16,8)
+dnn_activation = 'relu'
+dnn_l2_reg = 0.0
+dnn_use_bn = False
+dnn_dropout_rate = 0.0
+lr = 0.001
+train_batch_size = 256
+test_batch_size = 512
+epochs=100
+validation_split=0.1
+
+
+model = DCNv2(
+    linear_feat_columns=linear_feat_columns, 
+    dnn_feat_columns=dnn_feat_columns, 
+    cross_num=cross_num,
+    expert_num=expert_num,
+    low_rank=low_rank,
+    linear_l2_reg=linear_l2_reg,
+    emb_l2_reg=emb_l2_reg, 
+    dcnv2_l2_reg=dcnv2_l2_reg, 
+    dnn_hidden_units=dnn_hidden_units,
+    dnn_activation=dnn_activation,
+    dnn_l2_reg=dnn_l2_reg, 
+    dnn_use_bn=dnn_use_bn, 
+    dnn_dropout_rate=dnn_dropout_rate, 
+    task=task
+)

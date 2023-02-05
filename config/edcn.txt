@@ -1,0 +1,35 @@
+model_name = 'EDCN'
+log_dir = os.path.join('log', 'tensorboard', model_name, datetime.now().strftime("%Y%m%d-%H%M%S"))
+task = 'binary'
+emb_size = 16
+cross_num = 3
+tau = 1.0
+bridge_type = 'attention_pooling' # attention_pooling | concatenation | add | hadamard
+linear_l2_reg = 0.0
+emb_l2_reg = 0.0
+lr = 0.001
+dnn_activation = 'relu'
+dnn_l2_reg = 0.0
+dnn_use_bn = False
+dnn_dropout_rate = 0.0
+train_batch_size = 256
+test_ratio = 0.2
+test_batch_size = 512
+epochs=100
+validation_split=0.1
+
+
+model = EDCN(
+    linear_feat_columns=linear_feat_columns,
+    dnn_feat_columns=dnn_feat_columns,
+    cross_num=cross_num,
+    tau=tau,
+    bridge_type=bridge_type,
+    dnn_activation=dnn_activation,
+    dnn_l2_reg=dnn_l2_reg, 
+    dnn_use_bn=dnn_use_bn, 
+    dnn_dropout_rate=dnn_dropout_rate, 
+    linear_l2_reg=linear_l2_reg,
+    emb_l2_reg=emb_l2_reg,
+    task=task
+)

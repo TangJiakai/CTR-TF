@@ -1,0 +1,24 @@
+model_name = 'MLR'
+log_dir = os.path.join('log', 'tensorboard', model_name, datetime.now().strftime("%Y%m%d-%H%M%S"))
+task = 'binary'
+emb_size = 16
+test_ratio = 0.2
+region_num = 2
+l2_reg = 0.0
+emb_l2_reg = 0.0
+lr = 0.0005
+train_batch_size = 256
+test_batch_size = 512
+epochs=100
+validation_split=0.1
+
+
+model = MLR(
+    region_feat_columns=feat_columns,
+    base_feat_columns=feat_columns,
+    region_num=region_num,
+    bias_feat_columns=None,
+    l2_reg=l2_reg,
+    emb_l2_reg=emb_l2_reg,
+    task=task
+)

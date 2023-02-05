@@ -1,0 +1,36 @@
+model_name = 'xDeepFM'
+log_dir = os.path.join('log', 'tensorboard', model_name, datetime.now().strftime("%Y%m%d-%H%M%S"))
+task = 'binary'
+emb_size = 16
+test_ratio = 0.2
+cin_layers = (256,128,64)
+cin_split = False
+cin_activation = 'relu'
+dnn_hidden_units = (64,32)
+dnn_l2_reg = 0.0
+dnn_dropout_rate = 0.5
+dnn_activation = 'relu'
+dnn_use_bn = True
+linear_l2_reg = 0.0
+lr = 0.001
+train_batch_size = 256
+test_batch_size = 512
+epochs=100
+validation_split=0.1
+
+
+
+model = xDeepFM(
+    linear_feat_columns=feat_columns,
+    dnn_feat_columns=dnn_feat_columns,
+    cin_layers=cin_layers,
+    cin_split=cin_split,
+    cin_activation=cin_activation,
+    linear_l2_reg=linear_l2_reg,
+    dnn_hidden_units=dnn_hidden_units,
+    dnn_activation=dnn_activation,
+    dnn_l2_reg=dnn_l2_reg,
+    dnn_dropout_rate=dnn_dropout_rate,
+    dnn_use_bn=dnn_use_bn,
+    task=task
+)
